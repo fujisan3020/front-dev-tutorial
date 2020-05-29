@@ -1,15 +1,18 @@
-.parent {
-  color: blue;
+#container {
+  text-align: center;
 }
 
-.parent > .element {
-  color: purple;
-}
-
-.parent > .element.second-child {
+.btn {
+  background-color: white;
   color: black;
+  border: 1px solid black;
+  padding: 10px 40px;
+  margin: 50px 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.element {
-  color: red;
+.btn.float:hover {
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
