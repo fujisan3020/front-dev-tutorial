@@ -1,23 +1,15 @@
-#container {
-  text-align: center;
+.parent {
+  color: blue;
 }
 
-.btn {
-  background-color: white;
+.parent > .element {
+  color: purple;
+}
+
+.parent > .element.second-child {
   color: black;
-  border: 1px solid black;
-  padding: 10px 40px;
-  margin: 50px 0;
-  font-weight: 600;
-  cursor: pointer;
-  /* transition : 移り変わり */
-  /* 第一引数は徐々に変化させたいものに、第二引数は所要時間を、第三引数は移り変わりの緩急を、イベントまでの前時間を設定できる*/
-  transition: color 0.3s ease 1s,
-              background-color 0.3s ease 2s;
 }
 
-.btn:hover {
-  background-color: black;
-  color: white;
-
+.element {
+  color: red;
 }
