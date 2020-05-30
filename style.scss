@@ -15,48 +15,30 @@ $cBlack: black;
     cursor: pointer;
     transition: all 0.3s;
 
-    &.float:hover {
-      background-color: $cBlack;
-      color: $cWhite;
-      box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5)
+    &.slide-bg {
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+
+        & span {
+           display: inline-block;
+           width: 100%;
+           height: 100%;
+           background-color: $cBlack;
+           position: absolute;
+           top: 0;
+           left: 0;
+           transform: translateX(-100%);
+           transition: transform 0.3s;
+           z-index: -1;
+        }
+
+        &:hover {
+            color: $cWhite;
+
+            & span {
+                transform: none;
+            }
+        }
     }
-
-    &.filled {
-      background-color: $cBlack;
-      color: $cWhite;
-      box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
-
-      &:hover {
-        background-color: $cWhite;
-        color: $cBlack;
-        box-shadow: none;
-      }
-    }
-
-    &.letter-spacing:hover {
-      background-color: $cBlack;
-      color: $cWhite;
-      // letter-spacing : 文字の間隔を表す
-      letter-spacing: 3px;
-    }
-
-    &.shadow:hover {
-      box-shadow: 5px 5px 0 0 $cBlack;
-      // taransform: translate() : x,y軸を基準に位置を変える 
-      transform: translate(-2.5px, -2.5px);
-    }
-
-    &.solid {
-      box-shadow: 2px 2px 0 0 $cBlack;
-      border-radius: 7px;
-
-      &:hover {
-        box-shadow: none;
-        transform: translate(2px, 2px);
-      }
-    }
-    // &:hover {
-    //     background-color: $cBlack;
-    //     color: $cWhite;
-    // }
 }
