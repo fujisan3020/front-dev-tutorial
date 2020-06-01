@@ -1,46 +1,38 @@
 $cBlack: black;
 
-.three-dot-spinner {
-  text-align: center;
-
-  & div {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    background-color: $cBlack;
-    border-radius: 50%;
-    // animation :
-    // ※今回の場合
-    // 第1引数 : キーフレーム
-    // 第2引数 : アニメーションが行われる時間間隔
-    // 第3引数 : 無限ループ
-    animation: sk-bouncedelay 1.4s infinite;
-
-    &.bounce1 {
-      animation-delay: -0.32s;
-    }
-
-    &.bounce2 {
-      animation-delay: -0.16s;
-    }
-
-  }
-
+body {
+    text-align: center;
 }
 
+.rect {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: $cBlack;
+    animation: sk-bouncedelay 1.4s;
+    animation-timing-function: ease;
+    // アニメーションの開始時間
+    animation-delay: 1s;
+    // アニメーションの反復回数
+    animation-iteration-count: infinite;
+    // アニメーションの開始方向
+    animation-direction: alternate-reverse;
+    // アニメーション再生中・再生後のスタイルの指定
+    // animation-fill-mode: both;
 
-// キーフレームの宣言と処理
+}
+.paused {
+    animation-play-state: paused;
+}
+
 @keyframes sk-bouncedelay {
-  0% {
-    transform: scale(0);
-  }
-  40% {
-    transform: scale(1);
-  }
-  80% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(0);
-  }
+    from {
+        transform: scale(0);
+        background-color: black;
+    }
+
+    to {
+        transform: scale(1);
+        background-color: green;
+    }
 }
