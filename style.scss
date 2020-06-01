@@ -15,14 +15,19 @@ $cBlack: black;
     cursor: pointer;
     transition: all 0.3s;
 
-    &.slide-bg {
+    &.cover-3d {
         position: relative;
-        overflow: hidden;
         z-index: 1;
+        // cssで3dのアニメーションを実装するには、最低限の下の２つが必要となる
+        transform-style: preserve-3d;
+        perspective: 300px;
+
+        & span {
+          display: inline-block;
+          transform: translateZ(20px);
+        }
 
         &::before {
-           //擬似要素は contentが必須!!
-           // 同じhtml要素に付与できる ::before, ::afterはそれぞれ１つずつ
             content: '';
            display: inline-block;
            width: 100%;
@@ -31,9 +36,11 @@ $cBlack: black;
            position: absolute;
            top: 0;
            left: 0;
-           transform: translateX(-100%);
-           transition: transform 0.3s;
-           z-index: -1;
+           transform: rotateX(90deg);
+           transition: all 0.3s;
+           transform-origin: top center;
+           // z-index: -1;
+           opacity: 0;
         }
 
         &:hover {
@@ -41,6 +48,7 @@ $cBlack: black;
 
             &::before {
                 transform: none;
+                opacity: 1;
             }
         }
     }
