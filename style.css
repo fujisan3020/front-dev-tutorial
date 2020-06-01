@@ -2,49 +2,46 @@
   text-align: center;
 }
 
-.btn {
-  background-color: white;
-  color: black;
-  border: 1px solid black;
-  padding: 10px 40px;
-  margin: 50px 0;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.btn.cover-3d {
+.try .btn, .answer .btn {
   position: relative;
-  z-index: 1;
+  display: inline-block;
   transform-style: preserve-3d;
   perspective: 300px;
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  cursor: pointer;
 }
 
-.btn.cover-3d span {
-  display: inline-block;
-  transform: translateZ(20px);
-}
-
-.btn.cover-3d::before {
-  content: '';
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  background-color: black;
+.try .btn.cubic span, .answer .btn.cubic span {
   position: absolute;
   top: 0;
   left: 0;
-  transform: rotateX(90deg);
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  line-height: 48px;
+  text-align: center;
   transition: all 0.3s;
-  transform-origin: top center;
-  opacity: 0;
+  transform-origin: center center -25px;
 }
 
-.btn.cover-3d:hover {
+.try .btn.cubic .hovering, .answer .btn.cubic .hovering {
+  background-color: black;
   color: white;
+  transform: rotateX(90deg);
 }
 
-.btn.cover-3d:hover::before {
-  transform: none;
-  opacity: 1;
+.try .btn.cubic .default, .answer .btn.cubic .default {
+  background-color: white;
+  color: black;
+  transform: rotateX(0);
+}
+
+.try .btn.cubic:hover .hovering, .answer .btn.cubic:hover .hovering {
+  transform: rotateX(0);
+}
+
+.try .btn.cubic:hover .default, .answer .btn.cubic:hover .default {
+  transform: rotateX(-90deg);
 }
