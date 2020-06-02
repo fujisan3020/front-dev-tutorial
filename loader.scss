@@ -1,32 +1,48 @@
+$cBlack: black;
 
-a {
-  color: orange;
+.three-dot-spinner {
+  text-align: center;
 
-  // visited : 訪問したものが対象
-  &:visited {
-    color: blue;
+  & div {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: $cBlack;
+    border-radius: 50%;
+    // animation :
+    // ※今回の場合
+    // 第1引数 : キーフレーム
+    // 第2引数 : アニメーションが行われる時間間隔
+    // 第3引数 : 無限ループ
+    animation: sk-bouncedelay 1.4s infinite;
+
+
+    @for $i from 1 through 2 {
+      // :nth-child() : elementの子要素のこと
+      // 変数$iをセレクターの場所()で使う場合は、変数を#{}を囲う必要がある
+      &:nth-child(#{$i}) {
+        animation-delay: -0.32s / $i;
+      }
+
+    }
+
   }
 
-  &:hover{
-    color: red;
-  }
-  // フォーカスされているものが対象
-  &:focus {
-    color: green;
-  }
-  // クリックしている状態のものが対象
-  &:active {
-    color: purple;
-  }
 }
 
 
-div {
-  & span {
-    color: olive;
-
-    &:not(.cls) {
-      color: purple;
-    }
+// キーフレームの宣言と処理
+@keyframes sk-bouncedelay {
+  0% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
   }
 }

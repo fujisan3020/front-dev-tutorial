@@ -1,27 +1,35 @@
-a {
-  color: orange;
+.three-dot-spinner {
+  text-align: center;
 }
 
-a:visited {
-  color: blue;
+.three-dot-spinner div {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: black;
+  border-radius: 50%;
+  animation: sk-bouncedelay 1.4s infinite;
 }
 
-a:hover {
-  color: red;
+.three-dot-spinner div:nth-child(1) {
+  animation-delay: -0.32s;
 }
 
-a:focus {
-  color: green;
+.three-dot-spinner div:nth-child(2) {
+  animation-delay: -0.16s;
 }
 
-a:active {
-  color: purple;
-}
-
-div span {
-  color: olive;
-}
-
-div span:not(.cls) {
-  color: purple;
+@keyframes sk-bouncedelay {
+  0% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
+  }
 }
