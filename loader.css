@@ -1,32 +1,27 @@
-body {
-  text-align: center;
+a {
+  color: orange;
 }
 
-.rect {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  background-color: black;
-  animation-name: sk-bouncedelay;
-  animation-duration: 1s;
-  animation-timing-function: ease;
-  animation-delay: 0s;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-fill-mode: forwards;
+a:visited {
+  color: blue;
 }
 
-.paused {
-  animation-play-state: paused;
+a:hover {
+  color: red;
 }
 
-@keyframes sk-bouncedelay {
-  from {
-    transform: scale(0);
-    background-color: black;
-  }
-  to {
-    transform: scale(1);
-    background-color: green;
-  }
+a:focus {
+  color: green;
+}
+
+a:active {
+  color: purple;
+}
+
+div span {
+  color: olive;
+}
+
+div span:not(.cls) {
+  color: purple;
 }
